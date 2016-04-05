@@ -2,6 +2,7 @@ package connector01917;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -60,6 +61,29 @@ public class Connector
 	{
 		try { return stm.executeQuery(cmd); }
 		catch (SQLException e) { throw new DALException(e); }
+	}
+	
+	public static ResultSet doQuery(String query, Object... parameters) throws DALException
+	{
+		try {
+			PreparedStatement statement = conn.prepareStatement(query);
+			
+			int i = 1;
+			for(Object parameter : parameters) {
+				if(parameter instanceof String)
+					statement.setString(i, (String)parameter);
+				else if(parameter instanceof Integer)
+					statement.setInt(i, (int)parameter);
+				else if(parameter instanceof Double)
+					statement.setDouble(i, (double)parameter);
+				
+				i++;
+			}
+			
+			return statement.executeQuery();
+		} catch(SQLException e) {
+			throw new DALException(e);
+		}
 	}
 	
 	public static int doUpdate(String cmd) throws DALException
