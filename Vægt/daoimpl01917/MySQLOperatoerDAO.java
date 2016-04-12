@@ -32,12 +32,21 @@ public class MySQLOperatoerDAO implements OperatoerDAO {
 	
 	public void updateOperatoer(OperatoerDTO opr) throws DALException {
 		Connector.doUpdate(
-				"UPDATE operatoer SET  opr_navn = '" + opr.getOprNavn() + "', ini =  '" + opr.getIni() + 
-				"', cpr = '" + opr.getCpr() + "', password = '" + opr.getPassword() + "' WHERE opr_id = " +
-				opr.getOprId()
+				"UPDATE operatoer SET  opr_navn = '" + opr.oprNavn + "', ini =  '" + opr.ini + 
+				"', cpr = '" + opr.cpr + "', password = '" + opr.password + "' WHERE opr_id = " +
+				opr.oprId
+		);
+		
+		Connector.doQuery(
+			"UPDATE operatoer SET  opr_navn = ?, ini =  ?, cpr = ?, password = ? WHERE opr_id = ?",
+			opr.oprNavn, opr.ini, opr.cpr, opr.password, opr.oprId
 		);
 	}
 	
+	/*
+	 * TODO: Modify to use view
+	 * @see daointerfaces01917.OperatoerDAO#getOperatoerList()
+	 */
 	public List<OperatoerDTO> getOperatoerList() throws DALException {
 		List<OperatoerDTO> list = new ArrayList<OperatoerDTO>();
 		ResultSet rs = Connector.doQuery("SELECT * FROM operatoer");
