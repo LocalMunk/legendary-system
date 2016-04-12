@@ -4,6 +4,7 @@ import daointerfaces01917.ProduktBatchDAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import connector01917.Connector;
