@@ -85,3 +85,4 @@ public class MySQLProduktBatchKompDAO implements ProduktBatchKompDAO {
 //	}
 
 }
+}
