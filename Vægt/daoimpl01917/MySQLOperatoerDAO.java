@@ -23,11 +23,11 @@ public class MySQLOperatoerDAO implements OperatoerDAO {
 	}
 	
 	public void createOperatoer(OperatoerDTO opr) throws DALException {		
-			Connector.doUpdate(
-				"INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES " +
-				"(" + opr.getOprId() + ", '" + opr.getOprNavn() + "', '" + opr.getIni() + "', '" + 
-				opr.getCpr() + "', '" + opr.getPassword() + "')"
-			);
+		Connector.doQuery
+		(
+			"INSERT INTO operatoer(opr_id, opr_navn, ini, cpr, password) VALUES (?, ?, ?, ?, ?)",
+			opr.oprId, opr.oprNavn, opr.ini, opr.cpr, opr.password
+		);
 	}
 	
 	public void updateOperatoer(OperatoerDTO opr) throws DALException {
