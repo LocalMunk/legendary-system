@@ -79,6 +79,8 @@ public class Connector
 					statement.setDouble(i, (double)parameter);
 				else if(parameter instanceof Date)
 					statement.setDate(i, new java.sql.Date(((Date)parameter).getTime()));
+				else if(parameter instanceof Float)
+					statement.setFloat(i, (float)parameter);
 				
 				i++;
 			}
