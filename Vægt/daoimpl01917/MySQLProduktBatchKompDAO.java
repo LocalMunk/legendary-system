@@ -37,11 +37,16 @@ public class MySQLProduktBatchKompDAO implements ProduktBatchKompDAO {
 	@Override
 	public void createProduktBatchKomp(ProduktBatchKompDTO pbKomp) throws DALException
 	{
-		Connector.doUpdate(
-				"INSERT INTO produktbatchkomp(pbId, rbId, tara, netto, opr_id) VALUES " + 
-				"(" + pbKomp.getPbId() +", '" + pbKomp.getRbId() + "', '" + pbKomp.getTara() + "', '" + 
-				pbKomp.getNetto() + "', '" + pbKomp.getOprId() + "')"
-				);
+//		Connector.doUpdate(
+//				"INSERT INTO produktbatchkomp(pbId, rbId, tara, netto, opr_id) VALUES " + 
+//				"(" + pbKomp.getPbId() +", '" + pbKomp.getRbId() + "', '" + pbKomp.getTara() + "', '" + 
+//				pbKomp.getNetto() + "', '" + pbKomp.getOprId() + "')"
+//				);
+		
+		Connector.doQuery(
+			"INSERT INTO produktbatchkomp(pbId, rbId, tara, netto, opr_id) VALUES (?,?,?,?,?)",
+			pbKomp.getPbId(), pbKomp.getRbId(), pbKomp.getTara(), pbKomp.getNetto(), pbKomp.getOprId()
+		);
 	}
 
 	@Override
