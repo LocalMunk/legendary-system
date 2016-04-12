@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 import daointerfaces01917.DALException;
 
@@ -76,6 +77,8 @@ public class Connector
 					statement.setInt(i, (int)parameter);
 				else if(parameter instanceof Double)
 					statement.setDouble(i, (double)parameter);
+				else if(parameter instanceof Date)
+					statement.setDate(i, new java.sql.Date(((Date)parameter).getTime()));
 				
 				i++;
 			}
