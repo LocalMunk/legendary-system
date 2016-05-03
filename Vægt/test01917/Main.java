@@ -31,7 +31,7 @@ public class Main {
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
 		System.out.println("Opdatering af initialer for operatoer nummer 4");
-		oprDTO.setIni("DoJu");
+		//oprDTO.setIni("DoJu");
 		try { opr.updateOperatoer(oprDTO); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		

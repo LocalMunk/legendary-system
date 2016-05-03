@@ -41,6 +41,7 @@ public class Connector
 	private static Connection conn;
 	private static Statement stm;
 	
+	
 	public Connector(String server, int port, String database,
 			String username, String password)
 				throws InstantiationException, IllegalAccessException,
