@@ -80,7 +80,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 	@Override
 	public void createReceptKomp(ReceptKompDTO receptkomponent) throws DALException
 	{
-		Connector.doQuery(
+		Connector.doUpdate(
 			"INSERT INTO receptkomponent (recept_id, raavare_id, nom_netto, tolerance) VALUES (?, ?, ?)",
 			receptkomponent.receptId, receptkomponent.raavareId, receptkomponent.nomNetto, receptkomponent.tolerance
 		);
@@ -90,7 +90,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 	@Override
 	public void updateReceptKomp(ReceptKompDTO receptkomponent) throws DALException
 	{
-		Connector.doQuery(
+		Connector.doUpdate(
 			"UPDATE receptkomponent SET raavare_id = ?, recept_id = ?, nom_netto = ?, tolerance = ? WHERE recept_id = ? AND raavare_id = ?",
 				receptkomponent.raavareId, receptkomponent.receptId, receptkomponent.nomNetto, receptkomponent.tolerance, receptkomponent.receptId, receptkomponent.raavareId
 		);

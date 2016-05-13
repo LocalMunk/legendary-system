@@ -49,7 +49,7 @@ public class MySQLReceptDAO implements ReceptDAO {
 	@Override
 	public void createRecept(ReceptDTO recept) throws DALException
 	{
-		Connector.doQuery
+		Connector.doUpdate
 		(
 			"INSERT INTO recept(recept_id, recept_navn) VALUES (?, ?)",
 			recept.receptId, recept.receptNavn

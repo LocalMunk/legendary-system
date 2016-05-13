@@ -50,7 +50,7 @@ public class MySQLRaavareDAO implements RaavareDAO {
 
 	@Override
 	public void createRaavare(RaavareDTO raavare) throws DALException
-	{Connector.doQuery
+	{Connector.doUpdate
 		(
 				"INSERT INTO raavare(raavare_id, raavare_navn,leverandoer) VALUES (?, ?, ?)",
 				raavare.raavareId,raavare.raavareNavn,raavare.leverandoer
@@ -61,7 +61,7 @@ public class MySQLRaavareDAO implements RaavareDAO {
 	@Override
 	public void updateRaavare(RaavareDTO raavare) throws DALException
 	{
-		Connector.doQuery(
+		Connector.doUpdate(
 		"UPDATE raavare SET  raavare_id = ?, raavare_navn =  ?, leverandoer = ?",
 		raavare.raavareId,raavare.raavareNavn,raavare.leverandoer
 		);
