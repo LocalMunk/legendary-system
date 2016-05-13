@@ -38,13 +38,13 @@ public class ProduktBatch {
 	
 	@Test
 	public void UpdateProduktBatch() throws DALException {
-		ProduktBatchDTO x = new ProduktBatchDTO(1, 2, 32);
+		ProduktBatchDTO x = new ProduktBatchDTO(1, 32, 2);
 		MySQLProduktBatchDAO conn = new MySQLProduktBatchDAO();
 		conn.updateProduktBatch(x);
 	}
 	@Test
 	public void createProduktBatchKomp() throws DALException {
-		ProduktBatchDTO x = new ProduktBatchDTO(2, 3, 45);
+		ProduktBatchDTO x = new ProduktBatchDTO(0, 3, 3);
 		MySQLProduktBatchDAO conn = new MySQLProduktBatchDAO();
 		conn.createProduktBatch(x);
 	}
