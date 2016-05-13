@@ -49,15 +49,15 @@ Connector db;
 	}
 	@Test
 	public void CreateRaavare() throws DALException {
-		RaavareDTO x = new RaavareDTO(23,"Tomat","Heinz");
+		RaavareDTO x = new RaavareDTO(0,"Tomat","Heinz");
 		MySQLRaavareDAO conn = new MySQLRaavareDAO();
 		conn.createRaavare(x);
 	}	
 	
 	@Test
 	public void UpdateRaavare() throws DALException {
-		RaavareDTO x = new RaavareDTO(23, "Tomat","Heinz");
-	MySQLRaavareDAO conn = new MySQLRaavareDAO();
+		RaavareDTO x = new RaavareDTO(1, "Tomat","Heinz");
+		MySQLRaavareDAO conn = new MySQLRaavareDAO();
 		conn.updateRaavare(x);
 	}
 	

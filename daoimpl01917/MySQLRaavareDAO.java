@@ -19,7 +19,7 @@ public class MySQLRaavareDAO implements RaavareDAO {
 	public RaavareDTO getRaavare(int raavareId) throws DALException
 	{
 
-		ResultSet rs = Connector.doQuery("SELECT raavare_id FROM raavare WHERE raavare_id = ?", raavareId);
+		ResultSet rs = Connector.doQuery("SELECT * FROM raavare WHERE raavare_id = ?", raavareId);
 		try {
 	    	if (!rs.first())
 	    		throw new DALException("Raavaren " + raavareId + " findes ikke");
@@ -62,8 +62,8 @@ public class MySQLRaavareDAO implements RaavareDAO {
 	public void updateRaavare(RaavareDTO raavare) throws DALException
 	{
 		Connector.doUpdate(
-		"UPDATE raavare SET  raavare_id = ?, raavare_navn =  ?, leverandoer = ?",
-		raavare.raavareId,raavare.raavareNavn,raavare.leverandoer
+		"UPDATE raavare SET raavare_navn =  ?, leverandoer = ? WHERE raavare_id = ?",
+		raavare.raavareNavn, raavare.leverandoer, raavare.raavareId
 		);
 	}
 
