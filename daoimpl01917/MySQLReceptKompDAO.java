@@ -68,7 +68,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 				list.add(new ReceptKompDTO(
 						rs.getInt("recept_id"),
 						rs.getInt("raavare_id"),
-						rs.getDouble("nomNetto"),
+						rs.getDouble("nom_netto"),
 						rs.getDouble("tolerance")));
 		} catch(SQLException e) {
 			throw new DALException(e);
@@ -81,7 +81,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 	public void createReceptKomp(ReceptKompDTO receptkomponent) throws DALException
 	{
 		Connector.doUpdate(
-			"INSERT INTO receptkomponent (recept_id, raavare_id, nom_netto, tolerance) VALUES (?, ?, ?)",
+			"INSERT INTO receptkomponent (recept_id, raavare_id, nom_netto, tolerance) VALUES (?, ?, ?, ?)",
 			receptkomponent.receptId, receptkomponent.raavareId, receptkomponent.nomNetto, receptkomponent.tolerance
 		);
 		

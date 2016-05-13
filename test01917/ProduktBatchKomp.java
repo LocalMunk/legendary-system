@@ -36,8 +36,8 @@ public class ProduktBatchKomp {
 		conn.updateProduktBatchKomp(x);
 	}
 	@Test
-	public void createProduktBatchKomp() throws DALException {
-		ProduktBatchKompDTO x = new ProduktBatchKompDTO(15, 2, 3.4, 4.3, 5);
+	public void CreateProduktBatchKomp() throws DALException {
+		ProduktBatchKompDTO x = new ProduktBatchKompDTO(1, 3, 3.4, 4.3, 5);
 		MySQLProduktBatchKompDAO conn = new MySQLProduktBatchKompDAO();
 		conn.createProduktBatchKomp(x);
 	}

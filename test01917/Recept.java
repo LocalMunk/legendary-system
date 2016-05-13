@@ -47,7 +47,7 @@ public class Recept {
 
 	@Test
 	public void CreateRecept() throws DALException {
-		ReceptDTO x = new ReceptDTO(10, "Recept for test");
+		ReceptDTO x = new ReceptDTO(0, "Recept for test");
 		MySQLReceptDAO conn = new MySQLReceptDAO();
 		conn.createRecept(x);
 	}

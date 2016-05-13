@@ -45,7 +45,7 @@ public class ReceptKomp {
 
 	@Test
 	public void CreateReceptKomp() throws DALException {
-		ReceptKompDTO x = new ReceptKompDTO(1, 1, 1, 1);
+		ReceptKompDTO x = new ReceptKompDTO(1, 3, 1, 1);
 		MySQLReceptKompDAO conn = new MySQLReceptKompDAO();
 		conn.createReceptKomp(x);
 	}

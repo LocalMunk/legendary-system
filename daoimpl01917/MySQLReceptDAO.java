@@ -51,8 +51,8 @@ public class MySQLReceptDAO implements ReceptDAO {
 	{
 		Connector.doUpdate
 		(
-			"INSERT INTO recept(recept_id, recept_navn) VALUES (?, ?)",
-			recept.receptId, recept.receptNavn
+			"INSERT INTO recept (recept_navn) VALUES (?)",
+			 recept.receptNavn
 		);
 	}
 
