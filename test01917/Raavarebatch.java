@@ -16,43 +16,49 @@ import daointerfaces01917.DALException;
 import dto01917.OperatoerDTO;
 import dto01917.RaavareBatchDTO;
 
-public class Raavarebatch {
-
-Connector db;
+public class Raavarebatch
+{
+	
+	Connector db;
 	
 	@Before
-	public void setup() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+	public void setup() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
+	{
 		db = new Connector(Constant.server, Constant.port, Constant.database, Constant.username, Constant.password);
 	}
-
+	
 	@Test
-	public void GetRaavare() throws DALException {
-		MySQLRaavareBatchDAO  conn = new MySQLRaavareBatchDAO();
+	public void GetRaavare() throws DALException
+	{
+		MySQLRaavareBatchDAO conn = new MySQLRaavareBatchDAO();
 		
-		RaavareBatchDTO op = conn.getRaavareBatch(23);
+		RaavareBatchDTO op = conn.getRaavareBatch(1);
 		assertNotNull(op);
 	}
-
+	
 	@Test
-	public void GetRaavareBatchList() throws DALException {
-		MySQLRaavareBatchDAO  conn = new MySQLRaavareBatchDAO();
+	public void GetRaavareBatchList() throws DALException
+	{
+		MySQLRaavareBatchDAO conn = new MySQLRaavareBatchDAO();
 		List<RaavareBatchDTO> op = conn.getRaavareBatchList();
 		assertNotNull(op);
 	}
 	
 	@Test
-	public void UpdateRaavareBatch() throws DALException {
+	public void UpdateRaavareBatch() throws DALException
+	{
 		RaavareBatchDTO x = new RaavareBatchDTO(23, 233, 3);
 		MySQLRaavareBatchDAO conn = new MySQLRaavareBatchDAO();
 		conn.updateRaavareBatch(x);
 		
 	}
-
+	
 	@Test
-	public void CreateOperator() throws DALException {
-		RaavareBatchDTO x = new RaavareBatchDTO(23, 40, 94);
+	public void CreateRaavarebatch() throws DALException
+	{
+		RaavareBatchDTO x = new RaavareBatchDTO(0, 1, 94);
 		MySQLRaavareBatchDAO conn = new MySQLRaavareBatchDAO();
 		conn.createRaavareBatch(x);
 		
-}
+	}
 }
