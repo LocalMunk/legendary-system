@@ -34,7 +34,7 @@ public class MySQLReceptDAO implements ReceptDAO {
 	public List<ReceptDTO> getReceptList() throws DALException
 	{
 		List<ReceptDTO> list = new ArrayList<ReceptDTO>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM recept");
+		ResultSet rs = Connector.doQuery("SELECT * FROM get_all_recept");
 		try
 		{
 			while (rs.next()) 

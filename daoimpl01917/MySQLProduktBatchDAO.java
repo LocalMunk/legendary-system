@@ -33,7 +33,7 @@ public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 	public List<ProduktBatchDTO> getProduktBatchList() throws DALException
 	{
 		List<ProduktBatchDTO> list = new ArrayList<ProduktBatchDTO>();
-		ResultSet rs = Connector.doQuery("SELECT pbId, status, receptId FROM produktbatch");
+		ResultSet rs = Connector.doQuery("SELECT * FROM get_all_produktbatch");
 		try
 		{
 			while (rs.next())

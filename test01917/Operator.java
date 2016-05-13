@@ -31,7 +31,6 @@ public class Operator {
 
 	@Test
 	public void GetOperatorList() throws DALException {
-
 		MySQLOperatoerDAO conn = new MySQLOperatoerDAO();
 		List<OperatoerDTO> op = conn.getOperatoerList();
 		assertNotNull(op);
