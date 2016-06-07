@@ -34,7 +34,7 @@ public class MySQLReceptDAO implements ReceptDAO {
 	public List<ReceptDTO> getReceptList() throws DALException
 	{
 		List<ReceptDTO> list = new ArrayList<ReceptDTO>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM get_all_recept");
+		ResultSet rs = Connector.doQuery("SELECT * FROM grp14.recept");
 		try
 		{
 			while (rs.next()) 
@@ -51,8 +51,9 @@ public class MySQLReceptDAO implements ReceptDAO {
 	{
 		Connector.doUpdate
 		(
-			"INSERT INTO recept (recept_navn) VALUES (?)",
-			 recept.receptNavn
+			"INSERT INTO recept (recept_id, recept_navn) VALUES (?,?)",
+			recept.receptId, 
+			recept.receptNavn
 		);
 	}
 

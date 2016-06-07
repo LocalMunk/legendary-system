@@ -36,7 +36,7 @@ public class MySQLRaavareDAO implements RaavareDAO {
 	public List<RaavareDTO> getRaavareList() throws DALException
 	{
 		List<RaavareDTO> list = new ArrayList<RaavareDTO>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM get_all_raavare");
+		ResultSet rs = Connector.doQuery("SELECT * FROM raavare");
 		try
 		{
 			while (rs.next())

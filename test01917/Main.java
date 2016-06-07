@@ -1,12 +1,11 @@
 package test01917;
 
-import daoimpl01917.MySQLOperatoerDAO;
-import daointerfaces01917.DALException;
-import dto01917.OperatoerDTO;
-
 import java.sql.SQLException;
 
 import connector01917.Connector;
+import daoimpl01917.MySQLUserDAO;
+import daointerfaces01917.DALException;
+import dto01917.UserDTO;
 
 public class Main {
 	public static void main(String[] args) {
@@ -17,34 +16,34 @@ public class Main {
 		catch (SQLException e) { e.printStackTrace(); }
 		
 		System.out.println("Operatoer nummer 3:");
-		MySQLOperatoerDAO opr = new MySQLOperatoerDAO();
-		try { System.out.println(opr.getOperatoer(3)); }
+		MySQLUserDAO user = new MySQLUserDAO();
+		try { System.out.println(user.getUser(3)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
 		System.out.println("Indsaettelse af ny operatoer med opr_id =  4");
-		OperatoerDTO oprDTO = new OperatoerDTO(4,"Don Juan","DJ","000000-0000","iloveyou");
-		try { opr.createOperatoer(oprDTO); }
+		UserDTO userDTO = new UserDTO(10,"Don", "Juan","DJ","0000000000","iloveyou", 42);
+		try { user.createUser(userDTO); }
 		catch (DALException e) { System.out.println(e.getMessage()); }	
 		
-		System.out.println("Operatoer nummer 4:");
-		try { System.out.println(opr.getOperatoer(4)); }
+		System.out.println("User nummer 10:");
+		try { System.out.println(user.getUser(10)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
-		System.out.println("Opdatering af initialer for operatoer nummer 4");
+		System.out.println("Opdatering af initialer for user nummer 10");
 		//oprDTO.setIni("DoJu");
-		try { opr.updateOperatoer(oprDTO); }
+		try { user.updateUser(userDTO); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
-		System.out.println("Operatoer nummer 4:");
-		try { System.out.println(opr.getOperatoer(4)); }
+		System.out.println("User nummer 10:");
+		try { System.out.println(user.getUser(10)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
-		System.out.println("Alle operatoerer:");
-		try { System.out.println(opr.getOperatoerList()); }
+		System.out.println("Alle users:");
+		try { System.out.println(user.getUserList()); }
 		catch (DALException e) { System.out.println(e.getMessage()); }
 		
-		System.out.println("Operatoer nummer 5:");
-		try { System.out.println(opr.getOperatoer(5)); }
+		System.out.println("User nummer 5:");
+		try { System.out.println(user.getUser(5)); }
 		catch (DALException e) { System.out.println(e.getMessage()); }		
 		
 	}

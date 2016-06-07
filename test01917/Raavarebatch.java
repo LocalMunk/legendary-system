@@ -1,6 +1,6 @@
 package test01917;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,10 +10,8 @@ import org.junit.Test;
 
 import connector01917.Connector;
 import connector01917.Constant;
-import daoimpl01917.MySQLOperatoerDAO;
 import daoimpl01917.MySQLRaavareBatchDAO;
 import daointerfaces01917.DALException;
-import dto01917.OperatoerDTO;
 import dto01917.RaavareBatchDTO;
 
 public class Raavarebatch
