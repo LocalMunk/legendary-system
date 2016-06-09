@@ -24,6 +24,7 @@ public class UserDTO
 	/** User level max 100 */
 	public int level;
 
+	public UserDTO() { }
 	public UserDTO(int userId, String firstName, String lastName, String ini, String cpr, String password, int level)
 	{
 		this.userId = userId;
@@ -44,6 +45,10 @@ public class UserDTO
     	this.cpr = user.cpr;
     	this.password = user.password;
     	this.level = user.level;
+    }
+    
+    public String getFullName() {
+    	return firstName + " " + lastName;
     }
     
 	public String toString() { return userId + "\t" + firstName + "\t" + lastName + "\t" + ini + "\t" + cpr + "\t" + password + "\t" + level; }
