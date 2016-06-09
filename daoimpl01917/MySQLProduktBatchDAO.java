@@ -16,12 +16,12 @@ public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 	@Override
 	public ProduktBatchDTO getProduktBatch(int pbId) throws DALException
 	{
-		ResultSet rs = Connector.doQuery("Select pb_id, status, recept_id FROM produktBatch WHERE pb_id = ?", pbId);
+		ResultSet rs = Connector.doQuery("Select pb_id, status, recept_id FROM produktbatch WHERE pb_id = ?", pbId);
 		try {
 			if (!rs.first())
 				throw new DALException("Produktbatchen" + pbId + "findes ikke");
 		
-			return new ProduktBatchDTO (rs.getInt("pb_id"), rs.getInt("status"), rs.getInt("recept_id"));
+			return new ProduktBatchDTO (rs.getInt("pb_id"), rs.getInt("recept_id"), rs.getInt("status"));
 		} 
 		catch (SQLException e)
 		{
@@ -33,12 +33,12 @@ public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 	public List<ProduktBatchDTO> getProduktBatchList() throws DALException
 	{
 		List<ProduktBatchDTO> list = new ArrayList<ProduktBatchDTO>();
-		ResultSet rs = Connector.doQuery("SELECT * FROM get_all_produktbatch");
+		ResultSet rs = Connector.doQuery("SELECT * FROM produktbatch");
 		try
 		{
 			while (rs.next())
 			{
-				list.add(new ProduktBatchDTO(rs.getInt("pb_id"), rs.getInt("status"), rs.getInt("recept_id")));
+				list.add(new ProduktBatchDTO(rs.getInt("pb_id"), rs.getInt("recept_id"), rs.getInt("status")));
 			}
 		}
 		catch (SQLException e) { throw new DALException(e); }
@@ -50,8 +50,8 @@ public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 	{
 		Connector.doUpdate
 		(
-			"INSERT INTO produktBatch(status, recept_id) VALUES (?,?)",
-				produktbatch.status, produktbatch.receptId
+			"INSERT INTO produktbatch(pb_id, recept_id, status) VALUES (?,?,?)",
+				produktbatch.pbId, produktbatch.receptId, produktbatch.status
 				);
 	}
 

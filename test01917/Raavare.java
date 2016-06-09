@@ -2,7 +2,7 @@ package test01917;
 
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,18 +10,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlXid;
-
 import connector01917.Connector;
 import connector01917.Constant;
-import daoimpl01917.MySQLOperatoerDAO;
-import daoimpl01917.MySQLRaavareBatchDAO;
 import daoimpl01917.MySQLRaavareDAO;
-
 import daointerfaces01917.DALException;
-import daointerfaces01917.RaavareDAO;
-import dto01917.OperatoerDTO;
-import dto01917.RaavareBatchDTO;
 import dto01917.RaavareDTO;
 
 public class Raavare {
